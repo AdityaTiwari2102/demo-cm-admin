@@ -16,5 +16,16 @@ ActiveRecord::Schema.define(version: 2021_05_19_092627) do
   enable_extension "citext"
   enable_extension "plpgsql"
 
+  create_table "users", force: :cascade do |t|
+    t.citext "email", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.string "city"
+    t.datetime "date_of_birth"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
 
 end
