@@ -11,6 +11,9 @@ class User < ApplicationRecord
     cm_index do
       page_title "User lists"
       page_description "To list basic information about user 1"
+      # all_db_columns exclude: [:created_at, :updated_at]
+      filter 'email', 'search', placeholder: 'Search based on first name and email'
+      filter [:created_at], :date
       column :first_name
       column :last_name
       column :age
